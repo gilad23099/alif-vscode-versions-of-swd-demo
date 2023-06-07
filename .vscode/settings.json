@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.h": "c",
+    },
+
+    "cmake.configureOnOpen": false,
+    
+    "terminal.integrated.env.windows": {
+        "CMSIS_PACK_ROOT": "C:/Tools/CMSIS/Packs-eval", // change to match your system
+        "SETOOLS_ROOT": "C:/Tools/SETOOLS_0_73_000"
+    },
+    "cortex-debug.variableUseNaturalFormat": false,
+}

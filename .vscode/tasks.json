@@ -1,0 +1,121 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Generate and Build with csolution + cbuild",
+            "type": "shell",
+            "command": "cbuild .cproject+${command:cpptools.activeConfigName}.cprj",
+            "problemMatcher": [
+                "$gcc",
+                "$armcc5",
+                "$iar"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "Generate Project Content with csolution"
+        },
+        {
+            "label": "Build Project with cbuild",
+            "type": "shell",
+            "command": "cbuild .cproject+${command:cpptools.activeConfigName}.cprj",
+            "problemMatcher": [
+                "$gcc",
+                "$armcc5",
+                "$iar"
+            ]
+        },
+        {
+            "label": "Clean Project with cbuild",
+            "type": "shell",
+            "command": "cbuild .cproject+${command:cpptools.activeConfigName}.cprj -c",
+            "problemMatcher": [],
+        },
+        {
+            "label": "Generate Project Content with csolution",
+            "type": "shell",
+            "command": "csolution convert -s .csolution.yaml -c .cproject+${command:cpptools.activeConfigName}",
+            "problemMatcher": []
+        },
+        {
+            "label": "First time pack installation",
+            "type": "shell",
+            "command": [
+                "cpackget init https://keil.com/pack/index.pidx;",
+                "cpackget add https://github.com/ARM-software/CMSIS_5/releases/download/5.9.0/ARM.CMSIS.5.9.0.pack;",
+                "cpackget add https://github.com/alifsemi/alif_ensemble-cmsis-dfp/releases/download/v0.5.2/AlifSemiconductor.Ensemble.0.5.2.pack;",
+                "cpackget list;",
+                "echo 'Pack installation has been completed'"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Program with Security Toolkit",
+            "type": "shell",
+            "command": [
+                "Copy-Item \".\\out\\.cproject\\${command:cpptools.activeConfigName}\\.cproject+${command:cpptools.activeConfigName}.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
+                "Copy-Item \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "pushd $env:SETOOLS_ROOT;",
+                "./app-gen-toc.exe -f alif-img.json;",
+                "./app-write-mram.exe -p;",
+                "Remove-Item ./build/images/alif-img.bin;",
+                "Remove-Item ./alif-img.json;",
+                "popd"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Program with Security Toolkit (select COM port)",
+            "type": "shell",
+            "command": [
+                "Copy-Item \".\\out\\.cproject\\${command:cpptools.activeConfigName}\\.cproject+${command:cpptools.activeConfigName}.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
+                "Copy-Item \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "pushd $env:SETOOLS_ROOT;",
+                "./app-gen-toc.exe -f alif-img.json;",
+                "./app-write-mram.exe -p -d;",
+                "Remove-Item ./build/images/alif-img.bin;",
+                "Remove-Item ./alif-img.json;",
+                "popd"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Update TOC with Security Toolkit",
+            "type": "shell",
+            "command": [
+                "Copy-Item \".\\out\\.cproject\\${command:cpptools.activeConfigName}\\.cproject+${command:cpptools.activeConfigName}.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
+                "Copy-Item \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "pushd $env:SETOOLS_ROOT;",
+                "./app-gen-toc.exe -f alif-img.json;",
+                "./app-write-mram.exe -S;",
+                "Remove-Item ./build/images/alif-img.bin;",
+                "Remove-Item ./alif-img.json;",
+                "popd"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Install debug stubs with Security Toolkit",
+            "type": "shell",
+            "command": [
+                "pushd $env:SETOOLS_ROOT;",
+                "./app-gen-toc.exe -f .\\build\\config\\app-cpu-stubs.json;",
+                "./app-write-mram.exe;",
+                "popd"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Install debug stubs with Security Toolkit (select COM port)",
+            "type": "shell",
+            "command": [
+                "pushd $env:SETOOLS_ROOT;",
+                "./app-gen-toc.exe -f .\\build\\config\\app-cpu-stubs.json;",
+                "./app-write-mram.exe -d;",
+                "popd"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
