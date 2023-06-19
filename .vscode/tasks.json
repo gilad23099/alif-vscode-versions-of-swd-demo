@@ -39,15 +39,24 @@
             "problemMatcher": []
         },
         {
+            "label": "Git clone latest Ensemble CMSIS",
+            "type": "shell",
+            "command": [
+                "git clone https://github.com/alifsemi/alif_ensemble-b-cmsis-dfp.git $env:CMSIS_PACK_ROOT\\AlifSemiconductor\\Ensemble\\0.9.0-p1;",
+                "echo 'Alif Ensemble repository cloned to $env:CMSIS_PACK_ROOT\\AlifSemiconductor\\Ensemble\\0.9.0-p1'"
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "First time pack installation",
             "type": "shell",
             "command": [
                 "cpackget init https://keil.com/pack/index.pidx;",
                 "cpackget add https://github.com/ARM-software/CMSIS_5/releases/download/5.9.0/ARM.CMSIS.5.9.0.pack;",
-                "cpackget add https://github.com/alifsemi/alif_ensemble-cmsis-dfp/releases/download/v0.5.2/AlifSemiconductor.Ensemble.0.5.2.pack;",
                 "cpackget list;",
                 "echo 'Pack installation has been completed'"
             ],
+            "dependsOn": "Git clone latest Ensemble CMSIS",
             "problemMatcher": []
         },
         {
