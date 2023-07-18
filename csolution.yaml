@@ -13,8 +13,6 @@ solution:
         # print memory usage to console
         # exclude unused sections from the iamge
         # suppress executable write segment warnings (used for ITCM)
-  projects:
-    - project: .cproject.yaml
   target-types:
     - device: Alif Semiconductor::AE722F80F55D5AE:M55_HE
       type: HE
@@ -28,3 +26,8 @@ solution:
       debug: "on"
       define:
         - "CORE_M55_HP"
+  packs:
+    - pack: AlifSemiconductor::Ensemble@0.9.0-p1
+    - pack: ARM::CMSIS
+  projects:
+    - project: cproject.yaml

@@ -11,7 +11,7 @@
                 "_UNICODE"
             ],
 
-            "compileCommands": "${workspaceFolder}/tmp/.cproject/HE/compile_commands.json"
+            "compileCommands": "${workspaceFolder}/tmp/cproject/HE/compile_commands.json"
         },
         {
             "name": "HP",
@@ -24,7 +24,7 @@
                 "_UNICODE"
             ],
 
-            "compileCommands": "${workspaceFolder}/tmp/.cproject/HP/compile_commands.json"
+            "compileCommands": "${workspaceFolder}/tmp/cproject/HP/compile_commands.json"
         }
     ],
     "version": 4
