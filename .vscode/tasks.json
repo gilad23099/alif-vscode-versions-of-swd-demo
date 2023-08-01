@@ -54,8 +54,8 @@
             "label": "Program with Security Toolkit",
             "type": "shell",
             "command": [
-                "Copy-Item \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
-                "Copy-Item \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
+                "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
                 "pushd $env:SETOOLS_ROOT;",
                 "./app-gen-toc.exe -f alif-img.json;",
                 "./app-write-mram.exe -p;",
@@ -69,8 +69,8 @@
             "label": "Program with Security Toolkit (select COM port)",
             "type": "shell",
             "command": [
-                "Copy-Item \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
-                "Copy-Item \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
+                "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
                 "pushd $env:SETOOLS_ROOT;",
                 "./app-gen-toc.exe -f alif-img.json;",
                 "./app-write-mram.exe -p -d;",
@@ -84,8 +84,8 @@
             "label": "Update TOC with Security Toolkit",
             "type": "shell",
             "command": [
-                "Copy-Item \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
-                "Copy-Item \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
+                "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
                 "pushd $env:SETOOLS_ROOT;",
                 "./app-gen-toc.exe -f alif-img.json;",
                 "./app-write-mram.exe -S;",
