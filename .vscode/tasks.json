@@ -2,6 +2,12 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "echo",
+            "type": "shell",
+            "command": "echo ${userHome}",
+            "problemMatcher": []
+        },
+        {
             "label": "Generate and Build with csolution + cbuild",
             "type": "shell",
             "command": "cbuild cproject+${command:cpptools.activeConfigName}.cprj",
@@ -30,7 +36,7 @@
             "label": "Clean Project with cbuild",
             "type": "shell",
             "command": "cbuild cproject+${command:cpptools.activeConfigName}.cprj -c",
-            "problemMatcher": [],
+            "problemMatcher": []
         },
         {
             "label": "Generate Project Content with csolution",
@@ -54,13 +60,13 @@
             "label": "Program with Security Toolkit",
             "type": "shell",
             "command": [
-                "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
-                "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "cp ./out/cproject/${command:cpptools.activeConfigName}/cproject.bin $env:SETOOLS_ROOT/build/images/alif-img.bin;",
+                "cp ./.alif/m55-${command:cpptools.activeConfigName}_cfg.json $env:SETOOLS_ROOT/alif-img.json;",
                 "pushd $env:SETOOLS_ROOT;",
-                "./app-gen-toc.exe -f alif-img.json;",
-                "./app-write-mram.exe -p;",
-                "Remove-Item ./build/images/alif-img.bin;",
-                "Remove-Item ./alif-img.json;",
+                "./app-gen-toc -f alif-img.json;",
+                "./app-write-mram -p;",
+                "rm ./build/images/alif-img.bin;",
+                "rm ./alif-img.json;",
                 "popd"
             ],
             "problemMatcher": []
@@ -72,8 +78,8 @@
                 "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
                 "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
                 "pushd $env:SETOOLS_ROOT;",
-                "./app-gen-toc.exe -f alif-img.json;",
-                "./app-write-mram.exe -p -d;",
+                "./app-gen-toc -f alif-img.json;",
+                "./app-write-mram -p -d;",
                 "Remove-Item ./build/images/alif-img.bin;",
                 "Remove-Item ./alif-img.json;",
                 "popd"
@@ -87,8 +93,8 @@
                 "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
                 "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
                 "pushd $env:SETOOLS_ROOT;",
-                "./app-gen-toc.exe -f alif-img.json;",
-                "./app-write-mram.exe -S;",
+                "./app-gen-toc -f alif-img.json;",
+                "./app-write-mram -S;",
                 "Remove-Item ./build/images/alif-img.bin;",
                 "Remove-Item ./alif-img.json;",
                 "popd"
@@ -100,8 +106,8 @@
             "type": "shell",
             "command": [
                 "pushd $env:SETOOLS_ROOT;",
-                "./app-gen-toc.exe -f .\\build\\config\\app-cpu-stubs.json;",
-                "./app-write-mram.exe;",
+                "./app-gen-toc -f ./build/config/app-cpu-stubs.json;",
+                "./app-write-mram;",
                 "popd"
             ],
             "problemMatcher": []
@@ -111,8 +117,8 @@
             "type": "shell",
             "command": [
                 "pushd $env:SETOOLS_ROOT;",
-                "./app-gen-toc.exe -f .\\build\\config\\app-cpu-stubs.json;",
-                "./app-write-mram.exe -d;",
+                "./app-gen-toc -f ./build/config/app-cpu-stubs.json;",
+                "./app-write-mram -d;",
                 "popd"
             ],
             "problemMatcher": []
