@@ -69,13 +69,13 @@
             "label": "Program with Security Toolkit (select COM port)",
             "type": "shell",
             "command": [
-                "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
-                "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "cp ./out/cproject/${command:cpptools.activeConfigName}/cproject.bin $env:SETOOLS_ROOT/build/images/alif-img.bin;",
+                "cp ./.alif/m55-${command:cpptools.activeConfigName}_cfg.json $env:SETOOLS_ROOT/alif-img.json;",
                 "pushd $env:SETOOLS_ROOT;",
                 "./app-gen-toc -f alif-img.json;",
                 "./app-write-mram -p -d;",
-                "Remove-Item ./build/images/alif-img.bin;",
-                "Remove-Item ./alif-img.json;",
+                "rm ./build/images/alif-img.bin;",
+                "rm ./alif-img.json;",
                 "popd"
             ],
             "problemMatcher": []
@@ -84,13 +84,13 @@
             "label": "Update TOC with Security Toolkit",
             "type": "shell",
             "command": [
-                "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
-                "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "cp ./out/cproject/${command:cpptools.activeConfigName}/cproject.bin $env:SETOOLS_ROOT/build/images/alif-img.bin;",
+                "cp ./.alif/m55-${command:cpptools.activeConfigName}_cfg.json $env:SETOOLS_ROOT/alif-img.json;",
                 "pushd $env:SETOOLS_ROOT;",
                 "./app-gen-toc -f alif-img.json;",
                 "./app-write-mram -S;",
-                "Remove-Item ./build/images/alif-img.bin;",
-                "Remove-Item ./alif-img.json;",
+                "rm ./build/images/alif-img.bin;",
+                "rm ./alif-img.json;",
                 "popd"
             ],
             "problemMatcher": []
