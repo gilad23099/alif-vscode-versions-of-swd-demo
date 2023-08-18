@@ -30,7 +30,7 @@
             "label": "Clean Project with cbuild",
             "type": "shell",
             "command": "cbuild cproject+${command:cpptools.activeConfigName}.cprj -c",
-            "problemMatcher": [],
+            "problemMatcher": []
         },
         {
             "label": "Generate Project Content with csolution",
@@ -54,13 +54,13 @@
             "label": "Program with Security Toolkit",
             "type": "shell",
             "command": [
-                "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
-                "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "cp ./out/cproject/${command:cpptools.activeConfigName}/cproject.bin $env:SETOOLS_ROOT/build/images/alif-img.bin;",
+                "cp ./.alif/m55-${command:cpptools.activeConfigName}_cfg.json $env:SETOOLS_ROOT/alif-img.json;",
                 "pushd $env:SETOOLS_ROOT;",
-                "./app-gen-toc.exe -f alif-img.json;",
-                "./app-write-mram.exe -p;",
-                "Remove-Item ./build/images/alif-img.bin;",
-                "Remove-Item ./alif-img.json;",
+                "./app-gen-toc -f alif-img.json;",
+                "./app-write-mram -p;",
+                "rm ./build/images/alif-img.bin;",
+                "rm ./alif-img.json;",
                 "popd"
             ],
             "problemMatcher": []
@@ -69,13 +69,13 @@
             "label": "Program with Security Toolkit (select COM port)",
             "type": "shell",
             "command": [
-                "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
-                "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "cp ./out/cproject/${command:cpptools.activeConfigName}/cproject.bin $env:SETOOLS_ROOT/build/images/alif-img.bin;",
+                "cp ./.alif/m55-${command:cpptools.activeConfigName}_cfg.json $env:SETOOLS_ROOT/alif-img.json;",
                 "pushd $env:SETOOLS_ROOT;",
-                "./app-gen-toc.exe -f alif-img.json;",
-                "./app-write-mram.exe -p -d;",
-                "Remove-Item ./build/images/alif-img.bin;",
-                "Remove-Item ./alif-img.json;",
+                "./app-gen-toc -f alif-img.json;",
+                "./app-write-mram -p -d;",
+                "rm ./build/images/alif-img.bin;",
+                "rm ./alif-img.json;",
                 "popd"
             ],
             "problemMatcher": []
@@ -84,13 +84,13 @@
             "label": "Update TOC with Security Toolkit",
             "type": "shell",
             "command": [
-                "cp \".\\out\\cproject\\${command:cpptools.activeConfigName}\\cproject.bin\" -Destination \"$env:SETOOLS_ROOT\\build\\images\\alif-img.bin\";",
-                "cp \".\\.alif\\m55-${command:cpptools.activeConfigName}_cfg.json\" -Destination \"$env:SETOOLS_ROOT\\alif-img.json\";",
+                "cp ./out/cproject/${command:cpptools.activeConfigName}/cproject.bin $env:SETOOLS_ROOT/build/images/alif-img.bin;",
+                "cp ./.alif/m55-${command:cpptools.activeConfigName}_cfg.json $env:SETOOLS_ROOT/alif-img.json;",
                 "pushd $env:SETOOLS_ROOT;",
-                "./app-gen-toc.exe -f alif-img.json;",
-                "./app-write-mram.exe -S;",
-                "Remove-Item ./build/images/alif-img.bin;",
-                "Remove-Item ./alif-img.json;",
+                "./app-gen-toc -f alif-img.json;",
+                "./app-write-mram -S;",
+                "rm ./build/images/alif-img.bin;",
+                "rm ./alif-img.json;",
                 "popd"
             ],
             "problemMatcher": []
@@ -100,8 +100,8 @@
             "type": "shell",
             "command": [
                 "pushd $env:SETOOLS_ROOT;",
-                "./app-gen-toc.exe -f .\\build\\config\\app-cpu-stubs.json;",
-                "./app-write-mram.exe;",
+                "./app-gen-toc -f ./build/config/app-cpu-stubs.json;",
+                "./app-write-mram;",
                 "popd"
             ],
             "problemMatcher": []
@@ -111,8 +111,8 @@
             "type": "shell",
             "command": [
                 "pushd $env:SETOOLS_ROOT;",
-                "./app-gen-toc.exe -f .\\build\\config\\app-cpu-stubs.json;",
-                "./app-write-mram.exe -d;",
+                "./app-gen-toc -f ./build/config/app-cpu-stubs.json;",
+                "./app-write-mram -d;",
                 "popd"
             ],
             "problemMatcher": []
