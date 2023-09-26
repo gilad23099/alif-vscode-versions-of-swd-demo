@@ -33,6 +33,19 @@
             "problemMatcher": []
         },
         {
+            "label": "Clean all",
+            "type": "shell",
+            "command": [
+                "cbuild cproject+${command:cpptools.activeConfigName}.cprj -c;",
+                "rm -Recurse -Force ./out;",
+                "rm -Recurse -Force ./RTE;",
+                "rm -Recurse -Force ./tmp;",
+                "rm -Recurse -Force *.yml;",
+                "rm -Recurse -Force *.cprj;",         
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "Generate Project Content with csolution",
             "type": "shell",
             "command": "csolution convert -s csolution.yaml -c cproject+${command:cpptools.activeConfigName}",
@@ -44,7 +57,7 @@
             "command": [
                 "cpackget init https://keil.com/pack/index.pidx;",
                 "cpackget add https://github.com/ARM-software/CMSIS_5/releases/download/5.9.0/ARM.CMSIS.5.9.0.pack;",
-                "cpackget add .alif/AlifSemiconductor.Ensemble.0.9.0-p1.pack;",
+                "cpackget add https://github.com/alifsemi/alif_ensemble-cmsis-dfp/releases/download/v0.9.6/AlifSemiconductor.Ensemble.0.9.6.pack;",
                 "cpackget list;",
                 "echo 'Pack installation has been completed'"
             ],
