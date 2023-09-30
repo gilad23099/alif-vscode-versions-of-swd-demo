@@ -31,3 +31,4 @@ solution:
     - pack: ARM::CMSIS
   projects:
     - project: cproject.yaml
+  

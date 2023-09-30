@@ -7,6 +7,15 @@ project:
           for-context: +HE
         - file: app/gcc_M55_HP.ld
           for-context: +HP
+    - group: Board
+      files:
+        - file: libs/board/devkit_gen2/board_init.c
+   #       for-context: .devkit_gen2
+   #     - file: libs/board/appkit_gen2/board_init.c
+   #       for-context: .appkit_gen2
+  add-path:
+    - app/
+    - libs/board/
   components:
     # needed for Alif Ensemble support
     - component: AlifSemiconductor::Device:Startup&C Startup

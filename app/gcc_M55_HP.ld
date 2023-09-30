@@ -27,10 +27,11 @@
  * limitations under the License.
  */
 
-__STACK_SIZE = 0x00002000;
-__HEAP_SIZE  = 0x00004000;
-__ROM_BASE = 0x80000000;
-__ROM_SIZE = 0x0057F000;
+__STACK_SIZE    = 0x00002000;
+__HEAP_SIZE     = 0x00004000;
+__APP_HEAP_SIZE = 0x00004000;
+__ROM_BASE      = 0x80000000;
+__ROM_SIZE      = 0x0057F000;
 
 MEMORY
 {
@@ -52,6 +53,7 @@ SECTIONS
     *startup_M55_*.c.obj(.text .rodata*)
     *system_M55.c.obj(.text .rodata*)
     *mpu_M55.c.obj(.text .rodata*)
+    *system_utils.c.obj(.text .rodata*)
 
     *lv_*.c.obj(.text .rodata*)
 
@@ -128,6 +130,14 @@ SECTIONS
     __bss_end__ = .;
   } > DTCM
 
+  .__app_heap :
+  {
+     . = ALIGN(8);
+     __RAM_segment_used_end__ = .;
+     . = . + __APP_HEAP_SIZE;
+     . = ALIGN(8);
+   } >DTCM
+
   .heap (NOLOAD) : ALIGN(8)
   {
     __end__ = .;
@@ -190,4 +200,7 @@ SECTIONS
 
     KEEP(*(.eh_frame*))
   } > MRAM
+
+  /* Check if data + heap + stack exceeds RAM limit */
+  ASSERT(__StackLimit >= __HeapLimit, "region RAM overflowed with stack")
 }
