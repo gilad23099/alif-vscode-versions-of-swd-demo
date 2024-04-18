@@ -12,7 +12,7 @@
 GET_DRIVER_REF(gpio_b, GPIO, BOARD_LEDRGB0_B_GPIO_PORT);
 GET_DRIVER_REF(gpio_r, GPIO, BOARD_LEDRGB0_R_GPIO_PORT);
 
-void main (void)
+int main (void)
 {
     gpio_b->Initialize(BOARD_LEDRGB0_B_PIN_NO, NULL);
     gpio_b->PowerControl(BOARD_LEDRGB0_B_PIN_NO, ARM_POWER_FULL);
