@@ -6,7 +6,7 @@ solution:
   packs:
     - pack: AlifSemiconductor::Ensemble@1.1.1
     - pack: ARM::CMSIS@6.0.0
- 
+
   target-types:
     - type: HE
       device: Alif Semiconductor::AE722F80F55D5LS:M55_HE
@@ -42,3 +42,4 @@ solution:
   projects:
     - project: blinky/blinky.cproject.yaml
     - project: hello/hello.cproject.yaml
+    - project: hello_rtt/hello_rtt.cproject.yaml

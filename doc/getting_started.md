@@ -1,4 +1,4 @@
-# Getting Started with VSCode CMSIS pack project 
+# Getting Started with VSCode CMSIS pack project
 
 This guide shows how to set up a VS Code environment with the Arm GNU tools and J-Link debugger under Windows. The same overall process can be used to create a Linux environment by installing Linux versions of the different tools listed and updating the paths appropriately in the different settings files.
 
@@ -8,7 +8,7 @@ There are example build-type options for IAR and armclang in the solution.
 ## Installing the tools
 
 - Install Visual Studio Code
-    - Begin by downloading [Visual Studio Code](https://code.visualstudio.com/download) 
+    - Begin by downloading [Visual Studio Code](https://code.visualstudio.com/download)
     - While you can install Visual Studio Code using the installation executable, we recommend using the .zip package.
     - Using .zip package will prevent VS Code from keeping its settings on per-user or per-system basis, allowing multiple installations to coexist without causing clashes in configuration and extensions.
     - Unpack the VS Code .zip file to the installation directory of your choice.
@@ -72,7 +72,7 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name
 
 ## Visual Studio Code settings
 
-- Settings are needed for J-link debugging and Alif SE tools integration 
+- Settings are needed for J-link debugging and Alif SE tools integration
 - Press F1 in VS Code, start typing "User", click "Preferences: Open User Settings (JSON)
 - Add the following configuration variables (Please note where you actually installed J-Link and Alif SE tools)
 
@@ -112,6 +112,19 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name
 - Or call the task CMSIS: Debug
 - By default the project uses J-link and Cortex-Debug and does a "launch" instead of "attach". You can change this behaviour by editing `launch.json`
 - **TIP:** You may want to use SE tools integration to install the CPU stubs
+
+## SEGGER RTT with Cortex-Debug
+
+This `hello_rtt` example uses a preinstalled SEGGER RTT library. Please note that this is taken from JLink v796 release so you might need to update it to your version.<br>
+
+Library sources are delivered with SEGGER JLink, so you can find it from your JLink installation directory. In Windows it is typically in `C:\Program Files\SEGGER\JLink_<VERSION>\Samples\RTT` and in Linux `/opt/SEGGER/JLink/Samples/RTT`.
+
+### Usage
+
+- Compile application
+- Launch application
+- You should see a new RTT terminal in TERMINAL -window:
+  ![alt text](images/cortex_debug_rtt.png)
 
 ## References
 - PDF [Getting Started Guide](https://alifsemi.com/download/AUGD0012) (With manual tools installation. Does not use Arm Environment Manager or CMSIS solution)
