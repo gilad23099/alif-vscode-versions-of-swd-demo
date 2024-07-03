@@ -21,6 +21,10 @@ git clone https://github.com/alifsemi/alif_vscode-template.git
 cd alif_vscode-template
 git submodule update --init
 ```
+OR
+```
+git clone --recursive https://github.com/alifsemi/alif_vscode-template.git
+```
 
 To build the template for a supported board other than the DevKit, you have to update the `board.h` file to pick the right variant of the board.
 By default the template will build for gen2 DevKit.
@@ -31,6 +35,8 @@ In addition to build tools the VS Code extensions and CMSIS packs will be downlo
 
 To make environment setup easier this project uses *Arm Environment Manager* for downloading and configuring most of the tool dependencies.
 Basically only VS Code, Alif SE tools and J-Link software need to be downloaded and installed manually.
+
+**NOTE:** Please see the Readme_Arm_Environment_Manager.txt file first if you would like to manage where the tools are installed.
 
 Opening the project folder with VS Code automatically suggests installing the extensions needed by this project:
 - Arm Environment Manager
