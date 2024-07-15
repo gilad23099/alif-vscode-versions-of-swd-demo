@@ -11,6 +11,8 @@
                     "rm -Force ./blinky/*.cprj;",
                     "rm -Force ./hello/*.cbuild.yml;",
                     "rm -Force ./hello/*.cprj;"
+                    "rm -Force ./hello_rtt/*.cbuild.yml;",
+                    "rm -Force ./hello_rtt/*.cprj;"
                 ]
             },
             "linux": {
@@ -20,6 +22,8 @@
                     "rm -f ./blinky/*.cprj;",
                     "rm -f ./hello/*.cbuild.yml;",
                     "rm -f ./hello/*.cprj;"
+                    "rm -f ./hello_rtt/*.cbuild.yml;",
+                    "rm -f ./hello_rtt/*.cprj;"
                 ]
             },
             "problemMatcher": []
