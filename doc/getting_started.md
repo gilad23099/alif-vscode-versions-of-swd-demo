@@ -92,7 +92,7 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name
 - Clicking the Build icon (hammer) builds the project with selected context
 - These tasks and more can be found by pressing F1 and typing CMSIS
 - Some of the CMSIS tasks you may find useful are:
-    - CMSIS: Install Required Pacs for Active Solution
+    - CMSIS: Install Required Packs for Active Solution - If you edit the pack requirements in the “alif.csolution.yaml” file before running this command, any packs not already available will be installed.
     - CMSIS: Rebuild
 - There is also a couple of custom tasks in the template project (Press F1, type "Run", click "Tasks: Run Task")
   - Clean all
