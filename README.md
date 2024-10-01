@@ -1,9 +1,10 @@
 # VSCode Getting Started Template
 A simple CMSIS-Pack based example to setup and test VS Code development environment for Alif Ensemble kits.
 
-- The solution consists of two projects
+- The solution consists of following projects:
   - **blinky** is a bare bone LED blinker
   - **hello** demonstrates retargeting printf() to UART
+  - **hello_rtt** demonstrates retargeting printf() to SEGGER RTT
 
 - Arm GNU toolchain is used as a default. There are build-type options for IAR and ARM compiler armclang for reference.
   - You can find the compiler specific settings in `cdefault.yaml`
