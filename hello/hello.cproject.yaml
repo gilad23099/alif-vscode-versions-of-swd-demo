@@ -12,14 +12,6 @@ project:
         - file: ../libs/common_app_utils/logging/retarget.c
         - file: ../libs/common_app_utils/fault_handler/fault_handler.c
 
-  linker:
-    - script: gcc_M55_HE.ld
-      for-compiler: GCC
-      for-context: +HE
-    - script: gcc_M55_HP.ld
-      for-compiler: GCC
-      for-context: +HP
-
   output:
     base-name: $Project$
     type:
@@ -56,6 +48,7 @@ project:
     # - component: AlifSemiconductor::Device:SOC Peripherals:LPI2C
     # - component: AlifSemiconductor::Device:SOC Peripherals:LPTIMER
     # - component: AlifSemiconductor::Device:SOC Peripherals:MHU
+    # - component: AlifSemiconductor::Device:SOC Peripherals:MIPI DSI CSI2 DPHY
     # - component: AlifSemiconductor::Device:SOC Peripherals:MIPI CSI2
     # - component: AlifSemiconductor::Device:SOC Peripherals:MIPI DSI
     # - component: AlifSemiconductor::Device:SOC Peripherals:MRAM
