@@ -19,22 +19,16 @@
                 "command": [
                     "cbuild ${command:cmsis-csolution.getSolutionPath} --clean;",
                     "rm -Force ./blinky/*.cbuild.yml;",
-                    "rm -Force ./blinky/*.cprj;",
                     "rm -Force ./hello/*.cbuild.yml;",
-                    "rm -Force ./hello/*.cprj;",
-                    "rm -Force ./hello_rtt/*.cbuild.yml;",
-                    "rm -Force ./hello_rtt/*.cprj;"
+                    "rm -Force ./hello_rtt/*.cbuild.yml;"
                 ]
             },
             "linux": {
                 "command": [
                     "cbuild ${command:cmsis-csolution.getSolutionPath} --clean;",
                     "rm -f ./blinky/*.cbuild.yml;",
-                    "rm -f ./blinky/*.cprj;",
                     "rm -f ./hello/*.cbuild.yml;",
-                    "rm -f ./hello/*.cprj;",
-                    "rm -f ./hello_rtt/*.cbuild.yml;",
-                    "rm -f ./hello_rtt/*.cprj;"
+                    "rm -f ./hello_rtt/*.cbuild.yml;"
                 ]
             },
             "problemMatcher": []

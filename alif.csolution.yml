@@ -39,6 +39,6 @@ solution:
     - _UNICODE
 
   projects:
-    - project: blinky/blinky.cproject.yaml
-    - project: hello/hello.cproject.yaml
-    - project: hello_rtt/hello_rtt.cproject.yaml
+    - project: blinky/blinky.cproject.yml
+    - project: hello/hello.cproject.yml
+    - project: hello_rtt/hello_rtt.cproject.yml
