@@ -15,20 +15,18 @@
         {
             "label": "Clean all (including YML build files)",
             "type": "shell",
+            "command": [
+                "cbuild ${command:cmsis-csolution.getSolutionPath} --clean;",
+                "rm -f ./blinky/*.cbuild.yml;",
+                "rm -f ./hello/*.cbuild.yml;",
+                "rm -f ./hello_rtt/*.cbuild.yml;"
+            ],
             "windows": {
                 "command": [
                     "cbuild ${command:cmsis-csolution.getSolutionPath} --clean;",
                     "rm -Force ./blinky/*.cbuild.yml;",
                     "rm -Force ./hello/*.cbuild.yml;",
                     "rm -Force ./hello_rtt/*.cbuild.yml;"
-                ]
-            },
-            "linux": {
-                "command": [
-                    "cbuild ${command:cmsis-csolution.getSolutionPath} --clean;",
-                    "rm -f ./blinky/*.cbuild.yml;",
-                    "rm -f ./hello/*.cbuild.yml;",
-                    "rm -f ./hello_rtt/*.cbuild.yml;"
                 ]
             },
             "problemMatcher": []
@@ -48,18 +46,16 @@
         {
             "label": "Prepare program with Security Toolkit",
             "type": "shell",
+            "command": [
+                    "outputElfFilename='${command:cmsis-csolution.getBinaryFile}';",
+                    "cp \"${outputElfFilename/%???/bin}\" '${config:alif.setools.root}/build/images/alif-img.bin';",
+                    "cp './.alif/${command:cmsis-csolution.getProcessorName}_cfg.json' '${config:alif.setools.root}/alif-img.json';"
+                ],
             "windows": {
                 "command": [
                     "$outputElfFilename='${command:cmsis-csolution.getBinaryFile}';",
                     "$outputBinFilename=${outputElfFilename}.Substring(0, $outputElfFilename.Length -3) + 'bin';",
                     "cp \"$outputBinFilename\" '${config:alif.setools.root}/build/images/alif-img.bin';",
-                    "cp './.alif/${command:cmsis-csolution.getProcessorName}_cfg.json' '${config:alif.setools.root}/alif-img.json';"
-                ]
-            },
-            "linux": {
-                "command": [
-                    "outputElfFilename='${command:cmsis-csolution.getBinaryFile}';",
-                    "cp \"${outputElfFilename/%???/bin}\" '${config:alif.setools.root}/build/images/alif-img.bin';",
                     "cp './.alif/${command:cmsis-csolution.getProcessorName}_cfg.json' '${config:alif.setools.root}/alif-img.json';"
                 ]
             },
