@@ -24,6 +24,7 @@ static void uart_callback(uint32_t event)
 
 int main (void)
 {
+
     // Init pinmux using boardlib
     BOARD_Pinmux_Init();
 
@@ -34,7 +35,7 @@ int main (void)
 
     BOARD_LED2_Control(BOARD_LED_STATE_HIGH);
 
-    printf("\r\nHello World!\r\n");
+    printf("\r\nhello world\r\n");
 
     while (1) __WFE();
 }
