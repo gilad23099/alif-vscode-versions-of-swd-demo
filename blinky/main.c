@@ -85,14 +85,14 @@ int main(void)
 {
     initialize_pins();
 
-    // // swdio input from "host"
-    // bool is_pressed=is_button_pressed();
+    // swdio input from "host"
+    bool is_pressed=is_button_pressed();
 
-    // // one clock cycle for the target to get the data and output it
-    // clock_cycle();
+    // one clock cycle for the target to get the data and output it
+    clock_cycle();
 
-    // // swdio output
-    // swdio_send(is_pressed);
+    // swdio output
+    swdio_send(is_pressed);
 
 #ifdef CORE_M55_HE
     SysTick_Config(SystemCoreClock / 10);
@@ -107,18 +107,6 @@ int main(void)
 void SysTick_Handler(void)
 {
 #ifdef CORE_M55_HE
-    // swdio input from "host"
-    if (is_button_pressed())
-    {
-
-        // one clock cycle for the target to get the data and output it
-        clock_cycle();
-
-        // swdio output
-        swdio_send(1);
-    }
-
-    ;
 #else
     gpio_r->SetValue(BOARD_LEDRGB0_R_PIN_NO, GPIO_PIN_OUTPUT_STATE_TOGGLE);
 #endif
