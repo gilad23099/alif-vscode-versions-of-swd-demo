@@ -83,16 +83,28 @@ void swdio_send(bool is_pressed)
 
 int main(void)
 {
+    // Initialize the board
     initialize_pins();
 
-    // swdio input from "host"
-    bool is_pressed=is_button_pressed();
+    bool is_pressed=false;
+    while(1)
+    {
+        // swdio input from "host"
+        is_pressed = is_button_pressed();
 
-    // one clock cycle for the target to get the data and output it
-    clock_cycle();
+        if(is_pressed){
 
-    // swdio output
-    swdio_send(is_pressed);
+            // one clock cycle for the target to get the data and output it
+            clock_cycle();
+            
+            // swdio output
+            swdio_send(1);
+
+        }
+
+    }
+
+
 
 #ifdef CORE_M55_HE
     SysTick_Config(SystemCoreClock / 10);
